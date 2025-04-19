@@ -1,0 +1,68 @@
+import requests
+import paho.mqtt.client as mqtt
+import json
+import time
+import os
+
+ 
+MQTT_Broker = '192.168.2.75'  # Thingsboard MQTT broker address
+S1_ACCESS_TOKEN =os.getenv('S1_ACCESS_TOKEN')
+url = "http://192.168.2.75:3001/devices/ac233fa4d282/2"
+
+def fetch_temp_hum(url):
+    try:
+        response = requests.get(url)
+        data = response.json()
+        device_data = data.get('devices',{})
+        temperature = device_data['ac233fa4d282/2']['dynamb'].get('temperature')
+        humidity = device_data['ac233fa4d282/2']['dynamb'].get("relativeHumidity")
+
+        payload = {
+
+                "temperature": temperature,
+                "humidity": humidity
+        }
+        return payload
+    except requests.exceptions.RequestException as e:
+        print("Error fetching the data:", e)
+        return None
+    
+def update_temp_Hum_dashboard(client_S1,payload):
+    try:
+        if payload is None:
+            print("No payload to send")
+            return
+
+        topic = "v1/devices/me/telemetry"
+        client_S1.publish(topic, json.dumps(payload))
+        print("Data sent to ThingBoard:", payload)
+
+    except Exception as e:
+        print("An error occurred:", e)
+
+def main():
+    try:
+        client_S1 = mqtt.Client()
+        client_S1.username_pw_set(S1_ACCESS_TOKEN)
+        client_S1.connect(MQTT_Broker, 1883, keepalive=60)
+        client_S1.loop_start()
+        while True:
+            try:
+                payload = fetch_temp_hum(url)
+                update_temp_Hum_dashboard(client_S1,payload)
+                time.sleep(60)
+            except Exception as e:
+                print("error in Temperature and Humidity function:", e)
+
+    except KeyboardInterrupt:
+        print("User interupted")
+    except Exception as e:
+        print("An unexpected error occured:", e)
+
+    finally:
+        client_S1.loop_stop()
+        client_S1.disconnect()
+
+if __name__ == "__main__":
+    main()
+
