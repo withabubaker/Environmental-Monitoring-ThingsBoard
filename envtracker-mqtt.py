@@ -20,7 +20,7 @@ def main():
             try:
                 payload = fetch_temp_hum(url)
                 update_temp_Hum_dashboard(client_S1,payload)
-                sns_notification(payload)
+                #sns_notification(payload)
                 time.sleep(60)
             except Exception as e:
                 print("error in Temperature and Humidity function:", e)

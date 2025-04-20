@@ -5,6 +5,8 @@ import boto3
 
 topic_arn = os.getenv('TOPIC_ARN')
 sns = boto3.client('sns', region_name='us-east-1')
+tempThreshold = 24
+humThreshold = 40
 
 def fetch_temp_hum(url):
     try:
@@ -42,11 +44,11 @@ def sns_notification(payload):
         if payload is None:
             print("No data")
             return
-        if payload['temperature'] > 24:
+        if payload['temperature'] > tempThreshold:
             message = f"High Temperature Alert: {round(payload['temperature'])} °C"
             sns.publish(TopicArn=topic_arn, Message=message)
             print("Alert sent to SNS:", message)
-        if payload['humidity'] > 40:
+        if payload['humidity'] > humThreshold:
             message = f"High Humidity Alert: {round(payload['humidity'])} R/H"
             sns.publish(TopicArn=topic_arn, Message=message)
             print("Alert sent to SNS:", message)
