@@ -1,4 +1,5 @@
 # Real-Time Environmental Monitoring with BLE Sensors and MQTT
+![alt text](https://github.com/withabubaker/Environmental-Monitoring-ThingsBoard/blob/main/img/TBdashboard.jpg)
 An inexpensive and efficient way to stream temperature and humidity data in real-time. This project uses open-source Pareto Anywhere middleware to fetch data from Minew S1 BLE sensor, then pushes the readings to a ThingsBoard dashboard via the MQTT protocol. It also supports sending alerts via AWS SNS based on temperature or humidity thresholds, making it ideal for smart buildings, labs, or manufacturing environments. 
 
 ## Project Goals:
@@ -29,4 +30,4 @@ An inexpensive and efficient way to stream temperature and humidity data in real
 
 3. Setup Minew S1 BLE Sensor [here](https://reelyactive.github.io/diy/minew-s1-config/)
 
-  ![alt text](https://github.com/withabubaker/Environmental-Monitoring-ThingsBoard/blob/main/img/TBdashboard.jpg)
+
