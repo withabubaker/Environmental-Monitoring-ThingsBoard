@@ -29,4 +29,4 @@ An inexpensive and efficient way to stream temperature and humidity data in real
 
 
 
-  ![alt text](https://github.com/withabubaker/Environment-Tracker/blob/main/IMG/nodes-screen.jpg)
+  ![alt text](https://github.com/withabubaker/Environmental-Monitoring-ThingsBoard/blob/main/img/TBdashboard.jpg)
