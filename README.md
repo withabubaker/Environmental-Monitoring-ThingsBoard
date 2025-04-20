@@ -27,6 +27,6 @@ An inexpensive and efficient way to stream temperature and humidity data in real
    
 2. Install ThingsBoard on Raspberry Pi. Step-by-step instructions available [here](https://thingsboard.io/docs/user-guide/install/rpi/)
 
-
+3. Setup Minew S1 BLE Sensor [here](https://reelyactive.github.io/diy/minew-s1-config/)
 
   ![alt text](https://github.com/withabubaker/Environmental-Monitoring-ThingsBoard/blob/main/img/TBdashboard.jpg)
