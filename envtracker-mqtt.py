@@ -40,6 +40,7 @@ def update_temp_Hum_dashboard(client_S1,payload):
         client_S1.publish(topic, json.dumps(payload))
         print("Data sent to ThingBoard:", payload)
 
+        """
         if payload['temperature'] > 30:
             message = f"Temperature Alert: {payload['temperature']}°C"
             sns.publish(TopicArn=topic_arn, Message=message)
@@ -48,6 +49,7 @@ def update_temp_Hum_dashboard(client_S1,payload):
             message = f"Humidity Alert: {payload['humidity']}%"
             sns.publish(TopicArn=topic_arn, Message=message)
             print("Alert sent to SNS:", message)
+        """
             
     except Exception as e:
         print("An error occurred:", e)
