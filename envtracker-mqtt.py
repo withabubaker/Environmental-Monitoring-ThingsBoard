@@ -53,6 +53,21 @@ def update_temp_Hum_dashboard(client_S1,payload):
             
     except Exception as e:
         print("An error occurred:", e)
+def sns_notification(payload):
+    try:
+        if payload is None:
+            print("No data")
+            return
+        if payload['temperature'] > 30:
+            message = f"High Temperature Alert: {payload['temperature']}°C"
+            sns.publish(TopicArn=topic_arn, Message=message)
+            print("Alert sent to SNS:", message)
+        if payload['humidity'] > 40:
+            message = f"High Humidity Alert: {payload['humidity']}R/H"
+            sns.publish(TopicArn=topic_arn, Message=message)
+            print("Alert sent to SNS:", message)
+    except Exception as e:
+        print("An error occurred while sending SNS notification:", e)
 
 def main():
     try:
@@ -64,6 +79,7 @@ def main():
             try:
                 payload = fetch_temp_hum(url)
                 update_temp_Hum_dashboard(client_S1,payload)
+                sns_notification(payload)
                 time.sleep(60)
             except Exception as e:
                 print("error in Temperature and Humidity function:", e)
