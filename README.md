@@ -7,3 +7,12 @@ An inexpensive and efficient way to stream temperature and humidity data in real
 - Send the data to ThingsBoard via the MQTT protocol.
 - Display the data on the ThingsBoard dashboard.
 - Send SMS notifications via AWS SNS based on temperature or humidity thresholds.
+
+
+## Tools & Devices:
+
+1. Raspberry Pi4.
+2. [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/).
+3. [Minew S1 BLE Sensor](https://www.minew.com/product/s1-ble-temperature-and-humidity-sensor/).
+4. [ThingsBoard installed locally on Pi4](https://thingsboard.io/docs/user-guide/install/rpi/).
+5. [AWS SNS subscription](https://aws.amazon.com/sns/).
