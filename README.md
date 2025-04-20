@@ -16,3 +16,17 @@ An inexpensive and efficient way to stream temperature and humidity data in real
 3. [Minew S1 BLE Sensor](https://www.minew.com/product/s1-ble-temperature-and-humidity-sensor/).
 4. [ThingsBoard installed locally on Pi4](https://thingsboard.io/docs/user-guide/install/rpi/).
 5. [AWS SNS subscription](https://aws.amazon.com/sns/).
+
+
+## Installation and Configuration:
+
+1. Install Pareto Anywhere on Raspberry Pi. Follow the step-by-step instructions available [here](https://reelyactive.github.io/diy/pareto-anywhere-pi/).
+   Pareto Anywhere is an IoT middleware that makes extracting data from BLE devices much easier, and it can be installed on local, cloud, and Edge devices.
+   
+   ![alt_text](https://github.com/withabubaker/Environment-Tracker/blob/main/IMG/ParetoAnywhereScreen.jpg)
+   
+2. Install ThingsBoard on Raspberry Pi. Step-by-step instructions available [here](https://thingsboard.io/docs/user-guide/install/rpi/)
+
+
+
+  ![alt text](https://github.com/withabubaker/Environment-Tracker/blob/main/IMG/nodes-screen.jpg)
