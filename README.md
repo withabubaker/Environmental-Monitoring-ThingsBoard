@@ -32,3 +32,7 @@ An inexpensive and efficient way to stream temperature and humidity data in real
 3. Setup Minew S1 BLE Sensor [here](https://reelyactive.github.io/diy/minew-s1-config/)
 
 
+Sample results:
+
+<a href="https://www.youtube.com/watch?v=R392Zyts5yM">
+  <img src="https://img.youtube.com/vi/R392Zyts5yM/maxresdefault.jpg" alt="Watch the video" width="500"/>
